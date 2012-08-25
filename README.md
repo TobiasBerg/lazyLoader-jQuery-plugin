@@ -1,3 +1,5 @@
+# LazyLoader jQuery plugin
+
 Lazyloader is designed to excecute custom javascript on a bunch of elements once they get into view of the user.
 
 This can be used for lazyloading pictures but in my case I'm using it for loading groups of products in a webshop.
