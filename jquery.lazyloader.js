@@ -6,7 +6,7 @@
             interval  : 1,
             callback  : false
         };
-        
+
         var triggers = [];
         $this = this;
 		all_elems = this;
@@ -28,10 +28,10 @@
             if (typeof triggers[0] === 'object') {
                 if ($.isInView(triggers[0], settings)) {
                     
-                    if (typeof settings.callback == 'function') {
-                        var next_elems = $(selector + ":gt(" + all_elems.index(triggers[0]) + "):lt(" + settings.interval + ")");     
+                    if (typeof settings.callback === 'function') {
+                        var nextElements = $(selector + ":gt(" + all_elems.index(triggers[0]) + "):lt(" + settings.interval + ")");
                         
-                        settings.callback.call(next_elems, 'fisk');
+                        settings.callback.call(nextElements, 'fisk');
                     }
                     
 					triggers = triggers.slice(1);
@@ -43,10 +43,11 @@
         // Function for determining if element is in view of the user
         $.isInView = function(element, settings) {
             var elem = $(element);
+			var fold;
             if (settings.container === undefined || settings.container === window) {
-                var fold = $(window).height() + $(window).scrollTop();
+                fold = $(window).height() + $(window).scrollTop();
             } else {
-                var fold = $(settings.container).offset().top + $(settings.container).height();
+                fold = $(settings.container).offset().top + $(settings.container).height();
             }
             return fold >= elem.offset().top;
             
